@@ -32,18 +32,45 @@ const tasks = [
 
 
 
+// В обработчике клика кнопки добавления
 addTaskButton.addEventListener("click", () => {
-
-if (document.querySelector('.form-main')) return
-
-const formMain = createElementAndAdd('form', {className:'form-main'}, document.body)
-
-const formWrapper = createElementAndAdd('div', {className:'form-wrapper', }, formMain)
-const titleForm = createElementAndAdd('input', {className:'form-title', placeholder:"global task"}, formWrapper)
-const descriptionForm = createElementAndAdd('input', {className:'form-description', placeholder:"little description"}, formWrapper)
-const buttonReady = createElementAndAdd('button', {className:'form-button-ready', texContent: "ready"}, formWrapper)
-const buttonAdd = createElementAndAdd('button', {className:'form-button-add', texContent: "add"}, formWrapper)
-
- 
+  if (document.querySelector('.form-main')) return;
   
+  const formMain = createElementAndAdd('div', {className:'form-main'}, document.body);
+  
+  const formWrapper = createElementAndAdd('div', {className:'form-wrapper'}, formMain);
+
+
+createElementAndAdd('input', { className: 'form-title-input', placeholder: "Название задачи" }, formWrapper);
+
+createElementAndAdd('textarea', { className: 'form-description', placeholder: "Описание" }, formWrapper);
+const buttonWrapper = createElementAndAdd('div', {className:'button-wrapper'}, formWrapper);
+const buttonAddMicro = createElementAndAdd('button', { className: 'form-button-add', textContent: "Добавить", }, buttonWrapper)
+const buttonRemoveMicro = createElementAndAdd('button', { className: 'form-button-remove', textContent: "Отмена", }, buttonWrapper)
+
+buttonAddMicro.addEventListener('click', () =>
+  {
+     if (document.querySelector('.title-wrapper')) return;
+ 
+    const titleWrapper = createElementAndAdd('div', {className:'title-wrapper'}, formWrapper);
+    createElementAndAdd('input', { className: 'form-title-micro', placeholder: "Название пункта" }, titleWrapper);
+    createElementAndAdd('textarea', { className: 'form-description-micro', placeholder: "Описание пункта" }, titleWrapper);
+    const buttonWrapper = createElementAndAdd('div', {className:'button-wrapper'}, titleWrapper);
+    const ready = createElementAndAdd('button', { className: 'form-button-ready', textContent: "Готово" }, buttonWrapper);
+    const cancel = createElementAndAdd('button', { className: 'form-button-cancel', textContent: "Отмена" }, buttonWrapper);
+
+  }
+)
+
+
+
+createElementAndAdd('button', { className: 'form-button-ready', textContent: "Готово" }, );
+
+createElementAndAdd('button', { className: 'form-button-cancel', textContent: "Отмена" },);
+
+  
+  // Закрытие при клике вне формы
+  formMain.addEventListener('click', (e) => {
+    if(e.target === formMain) formMain.remove();
+  });
 });
