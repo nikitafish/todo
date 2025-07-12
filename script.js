@@ -64,9 +64,6 @@ buttonAddMicro.addEventListener('click', () =>
 
 
 
-createElementAndAdd('button', { className: 'form-button-ready', textContent: "Готово" }, );
-
-createElementAndAdd('button', { className: 'form-button-cancel', textContent: "Отмена" },);
 
   
   // Закрытие при клике вне формы
