@@ -38,7 +38,11 @@ if (document.querySelector('.form-main')) return
 
 const formMain = createElementAndAdd('form', {className:'form-main'}, document.body)
 
-
+const formWrapper = createElementAndAdd('div', {className:'form-wrapper', }, formMain)
+const titleForm = createElementAndAdd('input', {className:'form-title', placeholder:"global task"}, formWrapper)
+const descriptionForm = createElementAndAdd('input', {className:'form-description', placeholder:"little description"}, formWrapper)
+const buttonReady = createElementAndAdd('button', {className:'form-button-ready', texContent: "ready"}, formWrapper)
+const buttonAdd = createElementAndAdd('button', {className:'form-button-add', texContent: "add"}, formWrapper)
 
  
   

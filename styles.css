@@ -14,13 +14,13 @@ body {
   justify-content: center;
   padding-bottom: 70px;
   min-height: 100vh;
-  
+  position: relative;
 }
 
 /* Основной контейнер */
 .app {
   width: 100%;
-  max-width: 390px;
+  
   padding: 16px;
   background-color: #fefdfd;
   border-radius: 8px;
@@ -30,7 +30,7 @@ body {
   align-items: center;
   min-height: calc(100vh - 70px);
   overflow-y: auto;
-    position: relative;
+    
 }
 
 /* Header */
@@ -234,4 +234,9 @@ body {
   
   justify-content: center;
   align-items: center;
+}
+.form-wrapper {
+  width: 430px;
+  height: 932px;
+  background-color: white;
 }
