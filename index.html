@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Мини-игра</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app">
+    <header class="app__header">
+      <div class="header-info">
+        <img src="20250709_1808_Tech Wizard on Beach_simple_compose_01jzqmqn40fh6s3wrztay6yj0b.png" alt="" class="header-info__avatar">
+        <div class="header-info__text">
+          <span class="header-info__name">Привет, Никита!</span>
+          <p class="header-info__description">Твои ежедневные приключения начинаются сейчас!</p>
+        </div>
+      </div>
+      <button class="header__sidebar-btn"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <section class="progress">
+      <div class="progress-item progress-item--ongoing">
+        <i class="fas fa-tasks progress-item__icon"></i>
+        <div class="progress-item__text">
+          <span class="progress-item__title">On going</span>
+          <span class="progress-item__count">5 tasks</span>
+        </div>
+      </div>
+      <div class="progress-item progress-item--in-progress">
+        <i class="fas fa-spinner progress-item__icon"></i>
+        <div class="progress-item__text">
+          <span class="progress-item__title">In progress</span>
+          <span class="progress-item__count">3 tasks</span>
+        </div>
+      </div>
+      <div class="progress-item progress-item--completed">
+        <i class="fas fa-check-circle progress-item__icon"></i>
+        <div class="progress-item__text">
+          <span class="progress-item__title">Completed</span>
+          <span class="progress-item__count">10 tasks</span>
+        </div>
+      </div>
+      <div class="progress-item progress-item--canceled">
+        <i class="fas fa-times-circle progress-item__icon"></i>
+        <div class="progress-item__text">
+          <span class="progress-item__title">Canceled</span>
+          <span class="progress-item__count">1 task</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tasks">
+      <h2 class="tasks__title">Recent Tasks</h2>
+      <div class="tasks__list">
+        <!-- Здесь будут таски -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <button class="footer__add-btn"><i class="fas fa-plus"></i></button>
+    </footer>
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
