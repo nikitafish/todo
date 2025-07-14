@@ -1,10 +1,14 @@
-
 import { createElementAndAdd } from "./modules/dom.js";
 import { getElements } from "./modules/dom.js";
-const [addTaskButton, tasksList] = getElements([".footer__add-btn",".tasks__list"])
+import { loadingUnderTask } from "./undertask.js";
+const [addBigTaskButton, taskCardsContainer] = getElements([
+  ".footer__add-btn", 
+  ".tasks__list"
+]);
 
+let nextTaskId = 0
 
-const tasks = [
+const bigTasks = [
   {
     id: 1,
     title: "Большая задача 1",
@@ -12,7 +16,6 @@ const tasks = [
     microTasks: [
       { id: 1, title: "Микро-задача 1", status: "On going" },
       { id: 2, title: "Микро-задача 2", status: "Completed" },
-  
     ]
   },
   {
@@ -22,52 +25,47 @@ const tasks = [
     microTasks: [
       { id: 1, title: "Микро-задача 1", status: "Canceled" },
       { id: 2, title: "Микро-задача 2", status: "In progress" },
-   
     ]
   }
-]
+];
 
-
-
-
-
-
-// В обработчике клика кнопки добавления
-addTaskButton.addEventListener("click", () => {
+// Обработчик клика по кнопке добавления большой задачи
+addBigTaskButton.addEventListener("click", () => {
   if (document.querySelector('.form-main')) return;
-  
-  const formMain = createElementAndAdd('div', {className:'form-main'}, document.body);
-  
-  const formWrapper = createElementAndAdd('div', {className:'form-wrapper'}, formMain);
+
+  // Создаём модальное окно и внутренние контейнеры
+  const modalOverlay = createElementAndAdd('div', { className: 'form-main' }, document.body);
+  const modalContent = createElementAndAdd('div', { className: 'form-wrapper' }, modalOverlay);
+
+  // Контейнер: строка с полями и кнопкой
+  const inputAndButtonRow = createElementAndAdd('div', { className: 'input-and-button-row' }, modalContent);
+
+  // 
+  const inputFieldsColumn = createElementAndAdd('div', { className: 'input-fields-column' }, inputAndButtonRow);
+  loadingUnderTask(modalContent, )
 
 
-createElementAndAdd('input', { className: 'form-title-input', placeholder: "Название задачи" }, formWrapper);
 
-createElementAndAdd('textarea', { className: 'form-description', placeholder: "Описание" }, formWrapper);
-const buttonWrapper = createElementAndAdd('div', {className:'button-wrapper'}, formWrapper);
-const buttonAddMicro = createElementAndAdd('button', { className: 'form-button-add', textContent: "Добавить", }, buttonWrapper)
-const buttonRemoveMicro = createElementAndAdd('button', { className: 'form-button-remove', textContent: "Отмена", }, buttonWrapper)
 
-buttonAddMicro.addEventListener('click', () =>
-  {
-     if (document.querySelector('.title-wrapper')) return;
+
+  const bigTaskTitleInput = createElementAndAdd('input', { 
+    className: 'form-title-input', 
+    placeholder: "Название задачи" 
+  }, inputFieldsColumn);
+
+  const bigTaskDescriptionInput = createElementAndAdd('textarea', { 
+    className: 'form-description', 
+    placeholder: "Описание" 
+  }, inputFieldsColumn);
+
+
  
-    const titleWrapper = createElementAndAdd('div', {className:'title-wrapper'}, formWrapper);
-    createElementAndAdd('input', { className: 'form-title-micro', placeholder: "Название пункта" }, titleWrapper);
-    createElementAndAdd('textarea', { className: 'form-description-micro', placeholder: "Описание пункта" }, titleWrapper);
-    const buttonWrapper = createElementAndAdd('div', {className:'button-wrapper'}, titleWrapper);
-    const ready = createElementAndAdd('button', { className: 'form-button-ready', textContent: "Готово" }, buttonWrapper);
-    const cancel = createElementAndAdd('button', { className: 'form-button-cancel', textContent: "Отмена" }, buttonWrapper);
-
-  }
-)
-
-
 
 
   
-  // Закрытие при клике вне формы
-  formMain.addEventListener('click', (e) => {
-    if(e.target === formMain) formMain.remove();
+
+  // Закрытие модального окна при клике вне контента
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) modalOverlay.remove();
   });
 });

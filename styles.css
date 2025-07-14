@@ -4,37 +4,38 @@
   padding: 0;
   box-sizing: border-box;
 }
-html,
-body {
+
+html, body {
   height: 100%;
   font-family: Arial, sans-serif;
   background-color: #ffffff;
 }
+
 body {
   display: flex;
   justify-content: center;
-  padding-bottom: 70px;
   min-height: 100vh;
+  padding-bottom: 70px;
   position: relative;
 }
-input,
-textarea {
+
+input, textarea {
   width: 100%;
   border-radius: 10px;
   border: solid 1px black;
 }
+
 /* Основной контейнер */
 .app {
   width: 100%;
-
-  padding: 16px;
+  padding: 10px;
   background-color: #fefdfd;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
   overflow-y: auto;
 }
 
@@ -44,37 +45,43 @@ textarea {
   padding: 12px;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
+
 .header-info {
   display: flex;
   align-items: center;
   gap: 6px;
 }
+
 .header-info__avatar {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .header-info__text {
   max-width: 150px;
   display: flex;
   flex-direction: column;
 }
+
 .header-info__name {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #222;
 }
+
 .header-info__description {
   font-size: 10px;
   color: #00000099;
 }
+
 .header__sidebar-btn {
   background: none;
   border: none;
@@ -91,6 +98,7 @@ textarea {
   gap: 12px;
   margin-bottom: 24px;
 }
+
 .progress-item {
   background-color: #fff;
   border-radius: 12px;
@@ -98,20 +106,24 @@ textarea {
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
 .progress-item__icon {
-  font-size: 28px;
+  font-size: 22px;
 }
+
 .progress-item__text {
   display: flex;
   flex-direction: column;
 }
+
 .progress-item__title {
   font-weight: 600;
   font-size: 14px;
   color: black;
 }
+
 .progress-item__count {
   font-size: 12px;
   color: #666;
@@ -142,6 +154,7 @@ textarea {
   overflow-y: auto;
   padding-bottom: 80px;
 }
+
 .tasks__title {
   font-size: 20px;
   font-weight: 600;
@@ -149,229 +162,266 @@ textarea {
   text-align: center;
   color: #222;
 }
+
 .tasks__list {
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-height: 200px;
 }
-.formWrapper {
-  width: 100%;
-}
-/* Footer */
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 390px;
-  background-color: #ffffff;
-  padding: 12px 0;
-  display: flex;
-  justify-content: center;
 
-  z-index: 1000;
-  border-top: 1px solid black;
-}
-.footer__add-btn {
-  background-color: #c28616;
-  border: none;
-  color: white;
-  font-size: 18px;
-  padding: 12px 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  transition: background-color 0.3s ease;
-}
-.footer__add-btn:hover,
-.footer__add-btn:active {
-  background-color: #56f55e;
-}
-.footer__add-btn i {
-  font-size: 22px;
-}
 .task-card {
   width: 95%;
-  height: 70px;
+  height: 65px;
   background-color: white;
   border-radius: 10px;
   border: 1px solid black;
-
   padding-left: 6px;
   display: flex;
-  align-items: start;
   flex-direction: column;
   justify-content: center;
   gap: 6px;
 }
+
 .task-card p {
   color: #00000074;
 }
 
 .task-card__title {
   font-size: 17px;
-
   line-height: 0.8;
 }
+
 .task-card__description {
   font-size: 12px;
-
   line-height: 0.8;
 }
+
 .task-card__count {
   font-size: 10px;
   line-height: 0.8;
 }
-.form-main {
-  position: fixed; /* теперь относительно .app */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* затемнённый фон */
-  z-index: 10000; /* достаточно, чтобы быть поверх внутреннего контента */
-  display: flex;
 
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  padding: 10px 0;
+  display: flex;
   justify-content: center;
+  border-top: 1px solid black;
+  z-index: 1000;
+}
+
+.footer__add-btn {
+  background-color: #c28616;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
   align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.footer__add-btn:hover,
+.footer__add-btn:active {
+  background-color: #56f55e;
+}
+
+.footer__add-btn i {
+  font-size: 22px;
+}
+
+/* Модалка */
+.form-main {
+width: 95%;
+  height: 95%;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  z-index: 1000;
 }
 .form-wrapper {
-  width: 430px;
-  height: 932px;
-  background-color: white;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Контейнер для полей и кнопки справа */
+.input-and-button-row {
+  display: flex;
+  width: 100%;
+  gap: 12px;
+}
+
+/* Левая часть – поля ввода */
+.input-fields-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Правая часть – кнопка */
+.side-button-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+/* Сами поля ввода */
+.form-title-input,
+.form-description {
+  height: 48px;
+  text-align: left;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: border-color 0.2s ease;
+}
+
+.form-description {
+  height: 100px;
+  resize: vertical;
+  padding: 8px 12px;
+}
+
+/* Кнопка + */
+.form-button-add {
+  height: 100%;
+  background: linear-gradient(135deg, #c28616, #ffae00);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0 16px;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  transition: background 0.3s ease;
 }
-.form-title-input {
-  height: 40px;
-  text-align: center;
-  color: #0000009d;
-}
-.form-description {
-  height: 40px;
-  text-align: center;
-  color: #0000009d;
+
+.form-button-add:hover {
+  background: linear-gradient(135deg, #a56e10, #d89100);
 }
 .title-wrapper {
-height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    
+  display: flex;
+  width: 100%;
+  gap: 12px;
 }
-.form-title-micro {
-  height: 40px;
-  text-align: center;
+
+/* Левая колонка для микро-задач */
+.input-fields-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.form-description-micro {
-  height: 200px;
-  text-align: center;
+
+/* Правая колонка для кнопок Готово и Отмена */
+.side-button-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 10px; /* если кнопки в рост, между ними будет отступ */
 }
-@media (max-width: 480px) {
-  .app {
-    padding: 10px;
-    min-height: 100vh;
-  }
 
-  .header-info__avatar {
-    width: 36px;
-    height: 36px;
-  }
+/* Кнопки в правой колонке */
+.form-button-ready {
+  background: linear-gradient(135deg, #c28616, #ffae00);
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px;
+  transition: background 0.3s ease;
+}
 
-  .header-info__name {
-    font-size: 16px;
-  }
+.form-button-ready:hover,
+.form-button-cancel:hover {
+  background: linear-gradient(135deg, #a56e10, #d89100);
+}
 
-  .progress-item__icon {
-    font-size: 22px !important;
-  }
+.input-under-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+ background-color: #f1f1f1c5;
+ padding: 10px;
+ border-radius: 10px;
+}
+.under-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 200px; /* или любая нужная тебе высота */
+  padding: 5px;
+}
+/* ready-task – карточка подзадачи */
+.ready-task {
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: background-color 0.2s ease;
+}
 
-  .footer {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px 0;
-  }
+.ready-task:hover {
+  background-color: #f1f1f1;
+}
 
-  .footer__add-btn {
-    padding: 10px 12px;
-    font-size: 16px;
-  }
+/* under-task-text – сам текст подзадачи */
+.under-task-text {
+  font-size: 14px;
+  color: #333;
+  word-break: break-word;
+}
 
-  .task-card {
-    height: 65px;
-  }
+/* remove-button – крестик для удаления */
+.remove-button {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
 
-  /* Исправление модального окна */
-  .form-main {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 100000;
-  }
-
-  .form-wrapper {
-    width: 90%;
-    max-width: 400px;
-    height: 90%;
-    padding: 20px;
-    border-radius: 12px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    gap: 10px;
-  }
-  .title-wrapper {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: nowrap;
-  }
-
-  .form-button-ready,
-  .form-button-add,
-  .form-button-cancel,
-  .form-button-remove {
-    padding: 12px;
-    background: #c28616;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    width: 40%;
-  }
-  .button-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
-  .form-title-input {
-    width: 100%;
-    height: 40px;
-  }
-  .form-description {
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    color: #0000009d;
-  }
+.remove-button:hover {
+  color: #d11a2a;
+  background-color: rgba(0,0,0,0.05);
 }
